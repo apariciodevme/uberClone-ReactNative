@@ -1,19 +1,22 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-import { TailwindProvider } from "tailwindcss-react-native";
+import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 import { Provider } from "react-redux";
 import { store } from "./store";
 
 
+{
+  /** Screens */
+}
+import HomeScreen from "./screens/HomeScreen";
+
 export default function App() {
   return (
-    <Provider store={store}>
-      <TailwindProvider>
-        <View style={styles.container}>
-          <Text>Lets go uber</Text>
-        </View>
-      </TailwindProvider>
-    </Provider>
+      <Provider store={store}>
+        <SafeAreaView>
+
+        <HomeScreen />
+        </SafeAreaView>
+      </Provider>
   );
 }
 
