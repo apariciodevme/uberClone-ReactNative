@@ -1,6 +1,11 @@
 import { FlatList, Text, TouchableOpacity, View, Image } from "react-native";
 import React from "react";
 
+import { ArrowSmallRightIcon } from "react-native-heroicons/solid";
+
+
+import MapScreen from "../screens/MapScreen";
+
 const data = [
   {
     id: "123",
@@ -29,7 +34,12 @@ const NavOptions = () => {
               style={{ width: 120, height: 120, resizeMode: "contain" }}
               source={{ uri: item.image }}
             />
-            <Text className='mt-2 text-lg font-semibold' >{item.title}</Text>
+            <Text className="mt-2 text-lg font-semibold">{item.title}</Text>
+
+
+            <View className='bg-gray-900 w-10 h-10 flex-col items-center justify-center rounded-full mt-6'>
+              <ArrowSmallRightIcon color={'white'} />
+              </View>
           </View>
         </TouchableOpacity>
       )}
