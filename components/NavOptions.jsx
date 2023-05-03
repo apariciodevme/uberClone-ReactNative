@@ -23,13 +23,13 @@ const NavOptions = () => {
       keyExtractor={(item) => item.id}
       horizontal
       renderItem={({ item }) => (
-        <TouchableOpacity className="p-2 pl-6 pb-8">
+        <TouchableOpacity className="p-2 pl-6 pb-8 pt-4 bg-gray-200 m-2 w-40 rounded-xl">
           <View>
             <Image
               style={{ width: 120, height: 120, resizeMode: "contain" }}
               source={{ uri: item.image }}
             />
-            <Text className="text-red-600">{item.title}</Text>
+            <Text className='mt-2 text-lg font-semibold' >{item.title}</Text>
           </View>
         </TouchableOpacity>
       )}
