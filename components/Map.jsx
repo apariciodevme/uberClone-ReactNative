@@ -1,20 +1,50 @@
 import { View, Text } from "react-native";
 import React from "react";
-import MapView from "react-native-maps";
+import { useSelector } from "react-redux";
+import { selectDestination, selectOrigin } from "../slices/navSlice";
+import MapView, { Marker } from "react-native-maps";
+import MapViewDirections from "react-native-maps-directions";
+
+import {GOOGLE_API_KEY} from "@env";
+
 
 const Map = () => {
+  const origin = useSelector(selectOrigin);
+  const destination = useSelector(selectDestination);
+
   return (
-      <MapView
-      style={{
-        flex: 1,
+    <MapView
+      className="flex-1"
+      mapType="mutedStandard"
+      initialRegion={{
+        latitude: origin.location.lat,
+        longitude: origin.location.lng,
+        latitudeDelta: 0.005,
+        longitudeDelta: 0.005,
       }}
-        initialRegion={{
-          latitude: 37.78825,
-          longitude: -122.4324,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
-        }}
-      />
+    >
+        {origin && destination && (
+         <MapViewDirections
+         origin={origin.description}
+         destination={destination.description}
+         apikey={GOOGLE_API_KEY}
+         strokeWidth={3}
+         strokeColor="black"
+         />
+        )}
+
+
+
+        {origin?.location && (
+            <Marker
+            coordinate={{
+                latitude: origin.location.lat,
+                longitude: origin.location.lng,
+            }}
+            />
+        )}
+    
+    </MapView>
   );
 };
 
