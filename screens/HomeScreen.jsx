@@ -28,6 +28,9 @@ const HomeScreen = () => {
               fontSize: 18,
             },
           }}
+          enablePoweredByContainer={false}
+          minLength={2}
+
           query={{
             key: GOOGLE_API_KEY,
             language: "en",
