@@ -7,6 +7,8 @@ const MapScreen = () => {
   return (
     <View>
       <Text>MapScreen</Text>
+      <View className='h-1/2'></View>
+      <View className='h-1/2'></View>
     </View>
   )
 }
