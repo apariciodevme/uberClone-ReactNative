@@ -36,6 +36,7 @@ const MapScreen = () => {
           </Stack.Screen>
         </Stack.Navigator>
       </View>
+      
     </View>
   );
 };

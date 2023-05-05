@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { setDestination } from "../slices/navSlice";
 import { useNavigation } from "@react-navigation/native";
 import NavFavourites from "./NavFavourites";
+import { Icon } from "@rneui/base";
 
 const NavigateCard = () => {
   const dispatch = useDispatch();
@@ -40,8 +41,26 @@ const NavigateCard = () => {
             debounce={400}
           />
         </View>
+        <NavFavourites />
       </View>
-      <NavFavourites/>
+
+      <View className='flex-row bg-white justify-evenly py-2 mt-auto border-t border-gray-100'>
+        <TouchableOpacity
+        onPress={() => navigation.navigate('RideOptionsCard')}
+        className=" justify-between flex-row bg-black w-24 px-4 py-3 rounded-full">
+          <Icon name="car" type="font-awesome" color="white" size={16} />
+          <Text className="text-white text-center">Rides</Text>
+        </TouchableOpacity>
+        <TouchableOpacity className="flex-row justify-between items-center w-24 px-4 py-3 rounded-full">
+          <Icon
+            name="fast-food-outline"
+            type="ionicon"
+            color="black"
+            size={16}
+          />
+          <Text className="text-black text-center">Rides</Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 };
