@@ -13,8 +13,8 @@ const data = [
   {
     id: "323",
     icon: "briefcase",
-    location: "work",
-    destination: "Tesla headquarters, UK",
+    location: "Work",
+    destination: "Tesla Lugano",
   },
 ];
 
@@ -33,7 +33,7 @@ const NavFavourites = () => {
         </View>
       )}
       renderItem={({ item: { location, destination, icon } }) => (
-        <TouchableOpacity className='flex-row items-center p-6'  >
+        <TouchableOpacity className='flex-row items-center p-6 '  >
           <Icon
           style={{
             marginRight: 12,
@@ -44,7 +44,7 @@ const NavFavourites = () => {
           name={icon} type="ionicon" color="white" size={18} />
           <View>
             <Text className='text-lg font-semibold'>{location}</Text>
-            <Text className='text-lg text-gray-500 font-semibold'>{destination}</Text>
+            <Text className='text-base font-semibold text-gray-500'>{destination}</Text>
           </View>
         </TouchableOpacity>
       )}
